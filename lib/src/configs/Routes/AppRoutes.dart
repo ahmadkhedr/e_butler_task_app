@@ -30,12 +30,17 @@ class AppRoutes {
 
       case Routes.mainScreen:
         return MaterialPageRoute(builder: (context) => MainScreen());
-        
+
       case Routes.addLocationScreen:
         return MaterialPageRoute(builder: (context) => AddLocationScreen());
 
       case Routes.editUserScreen:
-        return MaterialPageRoute(builder: (context) => EditUserScreen());
+        final map = routeSettings.arguments as Map<String, dynamic>;
+
+        return MaterialPageRoute(
+            builder: (context) => EditUserScreen(
+                  userId: map['userId'],
+                ));
 
       case Routes.userDetailsScreen:
         final map = routeSettings.arguments as Map<String, dynamic>;

@@ -46,7 +46,10 @@ class LoginScreen extends StatelessWidget {
     return StreamBuilder(
       stream: bloc.emailStream,
       builder: ((BuildContext context, snapshot) {
-        return TextField(
+        return 
+        
+        
+        TextField(
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
               isDense: true,
@@ -75,6 +78,8 @@ class LoginScreen extends StatelessWidget {
             bloc.emailChange(input);
           },
         );
+      
+      
       }),
     );
   }
@@ -126,7 +131,10 @@ class LoginScreen extends StatelessWidget {
           return ElevatedButton(
             onPressed: snapshot.hasError || !snapshot.hasData
                 ? null
-                : (() => bloc.submit(context)),
+                : (() {
+                   FocusScope.of(context).requestFocus(FocusNode());
+                  bloc.submit(context);
+                }),
             child: Text("Submit"),
           );
         }));

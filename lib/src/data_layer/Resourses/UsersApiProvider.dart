@@ -12,15 +12,15 @@ class UsersApiProvider {
     return userModelFromJson(reponse.body);
   }
 
-  Future<SingleUserModel> getUserData() async {
-    var response = await http.post(Uri.parse("${AppStrings.baseUel}"));
+  Future<SingleUserModel> getUserData(String userId) async {
+    var response = await http.put(Uri.parse("${AppStrings.baseUel}/$userId"));
 
     return singleUserModelFromJson(response.body);
   }
 
   Future<String> updateUserData(String userId) async {
     var response = await http.put(Uri.parse("${AppStrings.baseUel}/$userId"));
-    print(response.statusCode.toString());
+   // print(response.statusCode.toString());
     return response.statusCode.toString();
   }
 }

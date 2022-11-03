@@ -7,12 +7,13 @@ import 'package:sizer/sizer.dart';
 import '../../business_logic_layer/Blocs/SingleUserBLoc.dart';
 
 class EditUserScreen extends StatelessWidget {
-  const EditUserScreen({super.key});
+  String userId;
+  EditUserScreen({super.key, required this.userId});
 
   @override
   Widget build(BuildContext context) {
     var userBloc = Provider.of<SingleUserBLoc>(context);
-    userBloc.getUserData();
+    userBloc.getUserData(userId);
     return Scaffold(
         body: SingleChildScrollView(
       child: Padding(
@@ -22,7 +23,8 @@ class EditUserScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 5.h, right: 3.sp, left: 3.sp,bottom: 10.h),
+              padding: EdgeInsets.only(
+                  top: 5.h, right: 3.sp, left: 3.sp, bottom: 10.h),
               child: Text(
                 "EditUserScreen",
                 style: TextStyle(fontSize: 20.sp),
@@ -33,17 +35,18 @@ class EditUserScreen extends StatelessWidget {
                 builder: (context, snapshot) {
                   return snapshot.hasData
                       ? Center(
-                        child: Column(
+                          child: Column(
                             children: [
-                            //  Text(snapshot.data!.name!),
+                              //  Text(snapshot.data!.name!),
                               emailTextField(userBloc, snapshot.data!.name!),
                               Padding(
-                                padding:  EdgeInsets.only(top:8.h),
-                                child: submitButton(userBloc, snapshot.data!.id!),
+                                padding: EdgeInsets.only(top: 8.h),
+                                child:
+                                    submitButton(userBloc, snapshot.data!.id!),
                               ),
                             ],
                           ),
-                      )
+                        )
                       : Container(
                           height: 100.h,
                           width: 1000.w,
@@ -101,7 +104,10 @@ class EditUserScreen extends StatelessWidget {
           return ElevatedButton(
             onPressed: snapshot.hasError || !snapshot.hasData
                 ? null
-                : (() => bloc.submitStream(context, userId)),
+                : (() {
+                    FocusScope.of(context).requestFocus(FocusNode());
+                    bloc.submitStream(context, userId);
+                  }),
             child: Text("Submit"),
           );
         }));

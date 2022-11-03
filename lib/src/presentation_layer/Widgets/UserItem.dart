@@ -20,7 +20,8 @@ class UserItem extends StatelessWidget {
             arguments: {'user': user});
       },
       onLongPress: () {
-        Navigator.pushNamed(context, Routes.editUserScreen);
+        Navigator.pushNamed(context, Routes.editUserScreen,
+            arguments: {'userId': user.id.toString()});
       },
       child: Container(
         padding: EdgeInsets.all(15.0),

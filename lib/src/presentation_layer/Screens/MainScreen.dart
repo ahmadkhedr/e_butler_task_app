@@ -75,7 +75,7 @@ class MainScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(20.0),
                           child: UserItem(
                             user: usersList[index],
-                            isDetails:false,
+                            isDetails: false,
                           ),
                         );
                       }),
@@ -95,12 +95,12 @@ class MainScreen extends StatelessWidget {
                 ],
               )
             : Container(
-              height: 100.h,
-              width: 100.w,
-              child: Center(
+                height: 100.h,
+                width: 100.w,
+                child: Center(
                   child: CircularProgressIndicator(),
                 ),
-            );
+              );
       },
     );
   }

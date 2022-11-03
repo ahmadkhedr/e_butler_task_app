@@ -34,6 +34,7 @@ class UserDetailsScreen extends StatelessWidget {
               ),
               MapWidget(
                 locations: user.location!,
+                isAddLocation: false,
               ),
               Text(
                 "Location List",

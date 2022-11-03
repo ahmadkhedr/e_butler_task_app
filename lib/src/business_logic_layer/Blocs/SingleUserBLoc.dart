@@ -21,20 +21,25 @@ class SingleUserBLoc with Validators, Constants {
 
   Function(String) get addMail => _userMailController.sink.add;
 
-  getUserData() async {
-    var userData = await singleUserRepository.getUserData();
+  getUserData(String userId) async {
+    var userData = await singleUserRepository.getUserData(userId);
 
     _userController.sink.add(userData);
   }
 
-  submitStream(BuildContext context,String userId) async {
+  submitStream(BuildContext context, String userId) async {
     print("Hi");
     if (_userMailController.stream.value.isNotEmpty) {
+      showLoaderDialog(context);
       var response = await singleUserRepository.updateUserData(userId);
       if (response == "200") {
+         Navigator.pop(context);
         showToast("Data Updated Succefully");
         Navigator.pop(context);
-      } else {}
+      } else {
+          Navigator.pop(context);
+        showToast("Error Occured");
+      }
       // _updateDataController.sink.add(response);
     } else {}
   }
