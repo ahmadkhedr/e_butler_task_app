@@ -1,9 +1,9 @@
 import 'dart:async';
 
-mixin  Validators {
+mixin Validators {
   final emailValidator = StreamTransformer<String, String>.fromHandlers(
       handleData: (String email, sink) {
-    if (email.contains("@") && email.length > 0) {
+    if (email.contains("@") && email.length > 0 && email.endsWith(".com")) {
       sink.add(email);
     } else {
       sink.addError("Please Enter a valid Mail!!");
@@ -12,10 +12,18 @@ mixin  Validators {
 
   final passwordValidator = StreamTransformer<String, String>.fromHandlers(
       handleData: (password, sink) {
-    if (password.length > 3) {
+    if (password.length >= 6) {
       sink.add(password);
     } else {
       sink.addError("Short Password !");
+    }
+  });
+  final nameValidator =
+      StreamTransformer<String, String>.fromHandlers(handleData: (name, sink) {
+    if (name.length > 0) {
+      sink.add(name);
+    } else {
+      sink.addError("Enter a Valid Name!");
     }
   });
 }

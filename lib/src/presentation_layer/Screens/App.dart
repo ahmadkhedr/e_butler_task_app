@@ -5,6 +5,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../business_logic_layer/Blocs/AllUsersBloc.dart';
 import '../../business_logic_layer/Blocs/LoginBloc.dart';
+import '../../business_logic_layer/Blocs/SingleUserBLoc.dart';
 import '../../data_layer/Resourses/UsersDBProvider.dart';
 
 class App extends StatefulWidget {
@@ -29,6 +30,7 @@ class _AppState extends State<App> {
         providers: [
           Provider<LoginBloc>(create: (_) => LoginBloc()),
           Provider<AllUsersBloc>(create: (_) => AllUsersBloc()),
+          Provider<SingleUserBLoc>(create: (_) => SingleUserBLoc()),
         ],
         child: Sizer(builder: (context, orientation, deviceType) {
           return MaterialApp(

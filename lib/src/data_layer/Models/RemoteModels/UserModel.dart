@@ -44,7 +44,7 @@ class UserModel {
         email: json["email"] == null ? null : json["email"],
         password: json["password"] == null ? null : json["password"],
         description: json["description"] == null ? "description For the user To be Displayed here " : json["description"],
-        location: json["location"] == null ? null : List<String>.from(json["location"].map((x) => x)),
+        location: json["location"] == null ? [] : List<String>.from(json["location"].map((x) => x)),
         descriptionn: json["descriptionn"] == null ? "" : json["descriptionn"],
         token: json["token"] == null ? null : json["token"],
         data: json["data"] == null ? null : Data.fromJson(json["data"]),

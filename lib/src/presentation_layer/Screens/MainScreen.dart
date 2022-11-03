@@ -75,6 +75,7 @@ class MainScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(20.0),
                           child: UserItem(
                             user: usersList[index],
+                            isDetails:false,
                           ),
                         );
                       }),
@@ -93,9 +94,13 @@ class MainScreen extends StatelessWidget {
                       : SizedBox.shrink()
                 ],
               )
-            : Center(
-                child: CircularProgressIndicator(),
-              );
+            : Container(
+              height: 100.h,
+              width: 100.w,
+              child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+            );
       },
     );
   }
@@ -110,8 +115,8 @@ class MainScreen extends StatelessWidget {
         return user.name!.toLowerCase().contains(query.toLowerCase());
       },
       tileLabel: (user) => user!.name,
-      emptySearchChild: Center(child: Text('No user found')),
-      searchFieldHint: 'Search Here..',
+      emptySearchChild: Center(child: Text('No users found')),
+      searchFieldHint: 'Type User Name Here..',
       onApplyButtonClick: (list) {
         // Do something with selected list
       },

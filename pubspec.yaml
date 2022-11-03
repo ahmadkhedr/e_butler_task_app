@@ -27,6 +27,7 @@ dependencies:
   cached_network_image: ^3.2.2
   sizer: ^2.0.15
   filter_list: ^1.0.2
+  google_maps_flutter: ^2.2.1
 
 dev_dependencies:
   flutter_test:

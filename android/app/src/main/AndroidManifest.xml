@@ -1,9 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.e_butler_task">
+       <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="e_butler_task"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+            <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDYn59w3JH1f2acDuzsJvqsJ8sgZxPqlOM" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
