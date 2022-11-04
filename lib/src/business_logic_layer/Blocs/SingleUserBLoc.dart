@@ -28,7 +28,7 @@ class SingleUserBLoc with Validators, Constants {
   }
 
   submitStream(BuildContext context, String userId) async {
-    print("Hi");
+ 
     if (_userMailController.stream.value.isNotEmpty) {
       showLoaderDialog(context);
       var response = await singleUserRepository.updateUserData(userId);

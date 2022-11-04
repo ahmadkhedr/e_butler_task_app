@@ -25,7 +25,6 @@ class MainScreen extends StatelessWidget {
         if (metrics.atEdge) {
           bool isTop = metrics.pixels == 0;
           if (isTop) {
-            print('At the top');
           } else {
             usersBloc.getUsers();
           }

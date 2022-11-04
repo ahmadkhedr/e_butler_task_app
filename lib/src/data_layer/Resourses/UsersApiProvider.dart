@@ -20,7 +20,6 @@ class UsersApiProvider {
 
   Future<String> updateUserData(String userId) async {
     var response = await http.put(Uri.parse("${AppStrings.baseUel}/$userId"));
-   // print(response.statusCode.toString());
     return response.statusCode.toString();
   }
 }

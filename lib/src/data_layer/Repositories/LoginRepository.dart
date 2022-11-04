@@ -13,21 +13,16 @@ class LoginRepository with Constants {
 
   Future<DbModel?> getUserMail(String userMail, BuildContext context) async {
     DbModel? item = await dbHelper.getUserMAil(userMail);
-    //Map<String, dynamic> value = {};
 
     if (item != null) {
-      print("Found");
-      //"Welcome Back ${item.mail}"
       showToast("Welcome Back ${item.mail}");
       Navigator.pushReplacementNamed(context, Routes.mainScreen);
 
       return item;
     } else {
-      print("Not Found and Will be added to the DB");
       showToast("Hi,$userMail You Have Registered Succefully to our app");
       Navigator.pushReplacementNamed(context, Routes.mainScreen);
       dbHelper.addItem(DbModel(mail: userMail));
-      //  value = {"isFound": false, "itemone": DbModel(mail: userMail)};
       return item;
     }
   }
