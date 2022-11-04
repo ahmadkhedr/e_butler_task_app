@@ -36,7 +36,7 @@ class _AppState extends State<App> {
         ],
         child: Sizer(builder: (context, orientation, deviceType) {
           return MaterialApp(
-            title: 'Flutter Demo',
+            title: 'EButler',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               primarySwatch: Colors.blue,

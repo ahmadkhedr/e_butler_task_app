@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../business_logic_layer/Blocs/AllUsersBloc.dart';
+import '../../configs/Routes/AppRoutes.dart';
 import '../../data_layer/Models/RemoteModels/UserModel.dart';
 import '../Widgets/UserItem.dart';
 
@@ -113,12 +114,16 @@ class MainScreen extends StatelessWidget {
       onItemSearch: (user, query) {
         return user.name!.toLowerCase().contains(query.toLowerCase());
       },
+      
       tileLabel: (user) => user!.name,
+      
       emptySearchChild: Center(child: Text('No users found')),
       searchFieldHint: 'Type User Name Here..',
-      onApplyButtonClick: (list) {
-        // Do something with selected list
+      onApplyButtonClick: (list,) {
+        // Navigator.pushNamed(context, Routes.userDetailsScreen,
+        //     arguments: {'user': user});
       },
+    
     );
   }
 }

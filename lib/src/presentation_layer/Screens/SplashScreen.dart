@@ -3,7 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-
+import 'package:sizer/sizer.dart';
 
 import '../../configs/Routes/AppRoutes.dart';
 
@@ -54,9 +54,11 @@ class _SplashScreenState extends State<SplashScreen>
             Container(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-           
               child: Center(
-                child:Image.asset("assets/images/backgroundimage.png"),
+                child: Image.asset(
+                  "assets/images/backgroundimage.png",
+                  width: 90.w,
+                ),
               ),
             ),
           ],

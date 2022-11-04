@@ -2,7 +2,7 @@
     package="com.example.e_butler_task">
        <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="e_butler_task"
+        android:label="EButler"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
             <meta-data

@@ -28,11 +28,16 @@ dependencies:
   sizer: ^2.0.15
   filter_list: ^1.0.2
   google_maps_flutter: ^2.2.1
+  flutter_launcher_icons: ^0.10.0
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/backgroundimage.png"
 
   flutter_lints: ^2.0.0
 
